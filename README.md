@@ -23,14 +23,15 @@ Made for current Chrome, Edge and Safari on a laptop or a tablet (768 px and wid
 ## What is in this repository
 
 ```
-site/                 the published app: the built files only (HTML, JavaScript, CSS, fonts)
-  source.json         the commit of the Nabra source it was built from
+site/                 the published app: built files only (HTML, JavaScript, CSS, fonts, an SVG icon)
+  source.json         the Nabra commit the site was built from
 tools/check.mjs       the check that runs before every deploy
 tools/required.json   the app's own screener and sample-data lines the check requires
-.github/workflows/    runs the check, then deploys site/ to GitHub Pages
+.github/workflows/    runs the check on the whole repository, then deploys site/ to GitHub Pages
+.gitignore            files that must never be published here
 ```
 
-The source code lives in Nabra's own repository, which is private. This repository receives only the build, written by `npm run demo:site` in Nabra from a reviewed commit of its `main` branch. The check refuses to publish a source map, any audio or video, a local path, an internal code, a link into the private repository or any web address not on its short list, and it requires the demo labelling. Do not edit `site/` by hand; the next build replaces it.
+The source code lives in Nabra's own repository, which is private. Everything here is written by `npm run demo:site` in Nabra, from the Nabra commit named in `site/source.json` (normally its reviewed `main` branch). The check refuses any file outside this layout, a source map, any audio or video, a local path, an internal code, a link into the private repository, any web address not on its short list and any email but the demo account's, and it requires the demo labelling. Do not edit anything here by hand; the next build replaces it.
 
 ## Update the demo
 

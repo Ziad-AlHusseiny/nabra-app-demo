@@ -1,0 +1,9 @@
+# Written by Nabra's web/deploy/build.mjs. Never publish these.
+.DS_Store
+*.wav
+*.mp3
+*.webm
+*.m4a
+.env
+.env.*
+node_modules/
